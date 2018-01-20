@@ -1,0 +1,19 @@
+@page
+@model microbank.Pages.Account.ListModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<html>
+<body>
+    <a asp-page="/Account/Create">Dodaj nowe konto</a>
+
+    <p>
+        Lista wszystkich kont:
+    </p>
+
+    @foreach (var customer in Model.Customers)
+    {
+        <div>@customer.FirstName</div>
+    }
+    
+</body>
+</html>
