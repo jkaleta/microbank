@@ -13,6 +13,8 @@ namespace microbank
 {
     public class Startup
     {
+        private string _connectionString = @"Server=(local)\SQLEXPRESS;Database=microbank;Trusted_Connection=True;";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,10 +26,10 @@ namespace microbank
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<MicroBankContext>(options => options.UseInMemoryDatabase("microbank"));
+            services.AddDbContext<MicroBankContext>(options => options.UseSqlServer(_connectionString));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
