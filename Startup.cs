@@ -31,8 +31,17 @@ namespace microbank
             var connectionStringConfig = builder.Build();
             var connectionString = connectionStringConfig.GetConnectionString("microbank_connection");
 
+            var injectedConnectionString = Environment.GetEnvironmentVariable("SQLSERVER_CONNECTION_STRING");
+
             services.AddMvc();
-            services.AddDbContext<MicroBankContext>(options => options.UseSqlServer(connectionString));
+
+            var optionsBuilder = new DbContextOptionsBuilder();
+            optionsBuilder.UseSqlServer(connectionString);
+            using(var context = new MicroBankContext(optionsBuilder.Options)){
+                //context.Database.Migrate();
+            }
+
+            services.AddDbContext<MicroBankContext>(options => options.UseSqlServer(injectedConnectionString));
         }
 
        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
