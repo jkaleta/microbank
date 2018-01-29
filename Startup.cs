@@ -8,13 +8,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using microbank.Data;
+using System.IO;
 
 namespace microbank
 {
     public class Startup
     {
-        private string _connectionString = @"Server=(local)\SQLEXPRESS;Database=microbank;Trusted_Connection=True;";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,8 +24,15 @@ namespace microbank
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            var connectionStringConfig = builder.Build();
+            var connectionString = connectionStringConfig.GetConnectionString("microbank_connection");
+
             services.AddMvc();
-            services.AddDbContext<MicroBankContext>(options => options.UseSqlServer(_connectionString));
+            services.AddDbContext<MicroBankContext>(options => options.UseSqlServer(connectionString));
         }
 
        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
