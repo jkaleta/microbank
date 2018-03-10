@@ -11,6 +11,6 @@ namespace microbank.Data
 
         // public DbSet<BankAccount> BankAccounts { get; set; }
 
-        public DbSet<Customer> Customers {get; set;}
+        public DbSet<Models.Customer> Customers {get; set;}
     }
 }

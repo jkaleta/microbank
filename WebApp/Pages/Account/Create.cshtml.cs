@@ -1,9 +1,10 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using microbank.Data.Models;
 using microbank.Data;
 
-namespace microbank.Pages.Account
+namespace microbank.WebApp.Pages.Account
 {
     public class CreateModel : PageModel
     {

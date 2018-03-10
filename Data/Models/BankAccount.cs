@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace microbank.Data
+namespace microbank.Data.Models
 {
     public class BankAccount
     {

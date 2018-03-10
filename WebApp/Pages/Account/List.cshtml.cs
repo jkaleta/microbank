@@ -2,10 +2,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using microbank.Data;
+using microbank.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace microbank.Pages.Account
+namespace microbank.WebApp.Pages.Account
 {
     public class ListModel : PageModel
     {
