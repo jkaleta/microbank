@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web" DefaultTargets="Publish">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PublishDir>$(OutDir)..\_PublishedWebsites\NetCoreWebApp\</PublishDir>
+    <PublishDir>$(OutDir)_PublishedWebsites\NetCoreWebApp\</PublishDir>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
