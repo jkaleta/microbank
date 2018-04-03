@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace microbank.Migrations
+namespace microbank.Data.Migrations
 {
     public partial class Initial : Migration
     {

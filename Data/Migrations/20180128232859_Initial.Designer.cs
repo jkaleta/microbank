@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace microbank.Migrations
+namespace microbank.Data.Migrations
 {
     [DbContext(typeof(MicroBankContext))]
     [Migration("20180128232859_Initial")]
